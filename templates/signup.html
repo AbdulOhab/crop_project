@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %} Registration system {% endblock %}
+
+
+{% block content %}
+
+<div style="width: 100%; height:50%; padding-top:30px;">
+  {% if message %}
+  <div class="alert alert-warning alert-dismissible fade show" role="alert" 
+  style="  margin: auto; width: 60%; padding: 10px;text-align: center; ">
+    {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endif %}
+
+</div>
+
+
+<div class="card-wrapper">
+  <div class="card">
+    <h1 class="center">Create a New Account</h1>
+    <form name="signup_form" action="" method="post">
+      <label for="name">Name</label>
+      <!-- only use of name="name" -->
+      <input type="text" name="name" class="field" id="InputName" placeholder="Please Enter your full name">
+      <label for="email">Email</label>
+      <input type="email" name="email" class="field" id="InputEmail" placeholder="Enter your email address">
+
+      <label for="password">Password</label>
+      <input type="password" name="password1" class="field" id="InputPassword" placeholder="Enter your password">
+
+      <label for="password">Repeat Password</label>
+      <input type="password" name="password2" class="field" id="InputPassword2" placeholder="Repeat password again">
+
+      <label for="text">Authorization Code</label>
+      <input type="text" name="accept" class="field" id="authorization" placeholder="Please Enter Authorization Code">
+
+      <p class="error error--hidden"></p>
+      <input type="submit" value="Sign Up" class="btn">
+    </form>
+    <p style="text-align: center;">Already Have account? <a href="{{ url_for('login') }} "
+        style="text-decoration: none;">Login</a> | <a href="#" style="text-decoration: none;">Go
+        home</a></p>
+  </div>
+</div>
+
+
+{% endblock %}

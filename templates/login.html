@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %} login system {% endblock %}
+
+
+{% block content %}
+
+<div style="width: 100%; height:50%; padding-top:30px;">
+  {% if message %}
+  <div class="alert alert-warning alert-dismissible fade show" role="alert"
+    style="  margin: auto; width: 60%; padding: 10px;text-align: center; ">
+    {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endif %}
+
+</div>
+
+
+<div class="card-wrapper">
+  <div class="card">
+    <form action="" method="post">
+      <div class="form-group">
+        <h1 class="center">User login</h1>
+        <label for="InputEmail">Email address</label>
+        <input name="email" class="form-control" id="InputEmail" placeholder="Enter email">
+      </div>
+      <div class="form-group">
+        <label for="InputPassword">Password</label>
+        <input type="password" name="password" class="form-control" id="InputPassword" placeholder="Password">
+      </div>
+      <p class="error error--hidden"></p>
+      <input type="submit" value="Sign In" class="btn">
+    </form>
+    <p style="text-align: center;">Don't have an account?<a href="{{ url_for('signup') }} "
+        style="text-decoration: none;">Signup</a> | <a href="#" style="text-decoration: none;">Go
+        home</a></p>
+  </div>
+</div>
+
+
+{% endblock %}
